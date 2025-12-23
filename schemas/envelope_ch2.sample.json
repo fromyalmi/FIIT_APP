@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "chapter": "ch2_video",
+    "created_at_kst": "2025-12-23_14:19:00 (KST)",
+    "mock": true,
+    "app_version": "v2"
+  },
+  "input": {
+    "cafe_name": "CREMA STUDIO",
+    "product": "카페 음료",
+    "menu_name": "말차 라떼",
+    "menu_desc": "제주 말차의 고소함, 직접 블렌딩한 우유, 그리고 저당 시럽.",
+    "tone": "유머",
+    "n": 5,
+    "platform": "Instagram",
+    "video_length": "30초",
+    "style": "엔터테인먼트",
+    "vibe": "감성"
+  },
+  "output": {
+    "title": "제목",
+    "script": "본문",
+    "hashtags": [
+      "#태그1",
+      "#태그2"
+    ]
+  }
+}
