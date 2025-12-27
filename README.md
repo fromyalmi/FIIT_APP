@@ -18,27 +18,72 @@
 
 ---
 
-## 실행 (Windows / VS Code)
+## 실행 가이드 (Windows / VS Code) — 팀원용
 
-### 1) 가상환경
-```bash
+### 0) “정답 위치”부터 확인 (가장 중요)
+- 반드시 **프로젝트 루트 폴더**에서 실행하세요.
+  ✅ 루트 기준: `README.md`와 `app/` 폴더가 같은 위치에 보이는 곳
+- ❌ `cd app`로 들어가서 실행하면 `core`/`views` import가 깨질 수 있어요.
+
+### 1) 가상환경 만들기 (처음 1회)
+터미널(CMD)에서 프로젝트 루트로 이동 후:
+
+```bat
 python -m venv .venv
+```
+
+### 2) 가상환경 활성화 (매번)
+```bat
 .venv\Scripts\activate
 ```
 
-### 2) 설치
-```bash
-pip install -r requirements.txt
+### 3) 패키지 설치 (처음 1회 + requirements 변경 시)
+```bat
+python -m pip install -r requirements.txt
 ```
 
-### 3) 환경변수
-1. `.env.example` → `.env` 로 복사
-2. `.env`에 `OPENAI_API_KEY=...` 입력
-
-### 4) 실행
-```bash
-streamlit run app/main.py
+### 4) 실행 (권장: 런처 오류를 피하는 방식)
+```bat
+python -m streamlit run app\main.py
 ```
+
+---
+
+## 자주 터지는 오류 3종 “즉시 처방”
+
+### A) `Fatal error in launcher ... streamlit.exe ...` (윈도우 런처 깨짐)
+아래 1줄로 복구 후 다시 실행:
+
+```bat
+python -m pip install --upgrade --force-reinstall streamlit
+```
+
+### B) `ModuleNotFoundError: No module named 'core'` 또는 `app.core...` 못 찾음
+대부분 **루트가 아니라 다른 폴더에서 실행해서** 생깁니다.
+
+1) 루트로 이동:
+```bat
+cd C:\Workspace\Team_FIIT\FIIT_APP\FIIT_APP_V2_2_NAVTAB
+```
+2) 다시 실행:
+```bat
+python -m streamlit run app\main.py
+```
+
+(임시 처방) 그래도 안 되면 한 번만:
+```bat
+set PYTHONPATH=%CD%
+```
+
+### C) `StreamlitDuplicateElementKey` (toggle key 중복)
+- 같은 `key="..."` 위젯이 **2번 생성된 것**입니다.
+- 해결 원칙: **위젯(토글/입력)은 한 곳에서만 생성**하고, 다른 곳은 `st.session_state.get(...)`로 값만 읽기.
+
+---
+
+## 팀원 제출 규칙 (패치 ZIP)
+- ZIP 최상단에 `app/` 폴더가 **그대로** 있어야 함 ✅
+- ZIP에 `.venv/`, `outputs/`, `.git/`, `__pycache__/` 포함 금지 🚫
 
 ---
 

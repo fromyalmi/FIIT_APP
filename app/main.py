@@ -1,3 +1,5 @@
+# 아래가 실행 명령어 (런처 오류 피하는 방식)
+# python -m streamlit run app\main.py
 import os
 import sys
 import streamlit as st
