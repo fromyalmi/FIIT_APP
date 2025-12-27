@@ -136,6 +136,10 @@ venv.bak/
 .env*
 **/.env*
 
+# outputs 결과물은 커밋 금지
+outputs/*.json
+outputs/*.mp3
+
 # Spyder project settings
 .spyderproject
 .spyproject
