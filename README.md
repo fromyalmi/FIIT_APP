@@ -18,6 +18,15 @@
 
 ---
 
+## ✅ 결과 저장 규칙 (팀원 질문 방지용: "저장 어디됨?" 금지)
+- 저장 위치: **프로젝트 루트 기준 `outputs/` 폴더**
+- 파일명 규칙: `ads_result_YYYYMMDD_HHMM.json`, `video_result_YYYYMMDD_HHMM.json`, `sns_result_YYYYMMDD_HHMM.json` (**KST 기준 타임스탬프**)
+- 저장 트리거: 각 CH 결과 화면에서 **“확정(저장)” 버튼**을 눌러야 실제로 파일이 생성됨 (생성만 하면 저장 안 될 수 있음)
+- 저장 완료 표시: 저장되면 **화면에 저장 완료 메시지 + saved_path(경로)**가 표시됨
+- Git 관리: `outputs/`는 **.gitignore로 제외** (테스트 산출물 커밋 금지)이** 결과 생성 + 저장까지 됨
+
+---
+
 ## 실행 가이드 (Windows / VS Code) — 팀원용
 
 ### 0) “정답 위치”부터 확인 (가장 중요)
